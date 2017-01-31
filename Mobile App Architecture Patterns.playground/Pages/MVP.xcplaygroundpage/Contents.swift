@@ -22,7 +22,7 @@ import UIKit
  Basic protocol that represents the interaction from the Presenter to the "View" to be implemented by the UIViewController.
  */
 protocol MVPQuoteViewContract: class {
-    func setQoute(quote: String)
+    func setQuote(quote: String)
 }
 
 /*:
@@ -47,7 +47,7 @@ class MVPQuoteViewController : UIViewController {
 }
 
 extension MVPQuoteViewController: MVPQuoteViewContract {
-    func setQoute(quote: String) {
+    func setQuote(quote: String) {
         self.quoteLabel.text = quote
     }
 }
@@ -71,7 +71,7 @@ class MVPQuotePresenter {
     func generateQuote() {
         let randomIndex = Int(arc4random_uniform(UInt32(quotes.count)))
         let randomQuote = quotes[randomIndex]
-        viewContract?.setQoute(quote: "\(randomQuote.text) -\(randomQuote.source)")
+        viewContract?.setQuote(quote: "\(randomQuote.text) -\(randomQuote.source)")
     }
 
 }

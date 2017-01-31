@@ -25,7 +25,7 @@ import UIKit
  
  */
 protocol VIPERQuoteViewContract: class {
-    func setQoute(quote: String)
+    func setQuote(quote: String)
 }
 
 /*:
@@ -51,7 +51,7 @@ class VIPERQuoteViewController : UIViewController {
 }
 
 extension VIPERQuoteViewController: VIPERQuoteViewContract {
-    func setQoute(quote: String) {
+    func setQuote(quote: String) {
         self.quoteLabel.text = quote
     }
 }
@@ -134,7 +134,7 @@ extension VIPERQuotePresenter: VIPERQuoteViewEventHandler {
 
 extension VIPERQuotePresenter: VIPERQuoteOutput {
     func updateQuote(quote: Quote) {
-        viewContract?.setQoute(quote: "\(quote.text) -\(quote.source)")
+        viewContract?.setQuote(quote: "\(quote.text) -\(quote.source)")
     }
 }
 
